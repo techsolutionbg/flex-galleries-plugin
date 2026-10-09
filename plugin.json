@@ -1,0 +1,37 @@
+{
+  "id": "flex/galleries",
+  "name": "Flex Galleries",
+  "version": "0.1.2",
+  "description": "Галерии с решетка, masonry, слайдер и lightbox. Множество галерии на страница.",
+  "minimum_platform_version": "0.1.54",
+  "entrypoint": "Flex\\Galleries\\GalleryPlugin",
+  "autoload": {
+    "Flex\\Galleries\\": "src/"
+  },
+  "permissions": [
+    "admin.ui",
+    "routes.admin",
+    "frontend.assets"
+  ],
+  "frontend": {
+    "scripts": [
+      "assets/admin.js",
+      "assets/galleries.js"
+    ],
+    "styles": [
+      "assets/galleries.css"
+    ],
+    "public": {
+      "scripts": [
+        "assets/galleries.js"
+      ],
+      "styles": [
+        "assets/galleries.css"
+      ]
+    }
+  },
+  "metadata": {
+    "status": "stable",
+    "storage": "database"
+  }
+}
