@@ -25,6 +25,7 @@ final class GalleryPlugin implements PluginInterface, BootablePluginInterface
         $context->routes?->admin(['GET', 'PUT', 'DELETE'], '/galleries/{id:number}', GalleryController::class, 'gallery');
         $context->routes?->admin('POST', '/galleries/{id:number}/{action:restore}', GalleryController::class, 'restore');
         $context->routes?->admin('DELETE', '/galleries/{id:number}/{action:force}', GalleryController::class, 'force');
-        $context->api->addFilter('public.content', static fn(mixed $html): mixed => is_string($html) ? (new GalleryRenderer(new GalleryStore()))->content($html) : $html);
+        $assets = $context->assets ?? null;
+        $context->api->addFilter('public.content', static fn(mixed $html): mixed => is_string($html) ? (new GalleryRenderer(new GalleryStore(), $assets))->content($html) : $html);
     }
 }

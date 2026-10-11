@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Flex\Galleries;
 
+use Flex\Extension\V1\PublicAssetRegistrarInterface;
+
 final class GalleryRenderer
 {
-    public function __construct(private GalleryStore $store) {}
+    public function __construct(private GalleryStore $store, private ?PublicAssetRegistrarInterface $assets = null) {}
 
     public function content(string $html): string
     {
@@ -59,8 +61,9 @@ final class GalleryRenderer
                     $result .= $document->saveHTML($child);
                 }
             }
+            // The gallery files load only on pages with a gallery, with the theme's plugin tags.
             if ($rendered) {
-                $result = '<link rel="stylesheet" href="/extensions/flex/galleries/assets/assets/galleries.css"><script type="module" src="/extensions/flex/galleries/assets/assets/galleries.js"></script>' . $result;
+                $this->assets?->enqueue('gallery');
             }
             return $result;
         } finally {

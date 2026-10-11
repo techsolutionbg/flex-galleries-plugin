@@ -2,7 +2,7 @@
 
 Самостоятелен плъгин за Flex CMS за създаване и вграждане на галерии от медийната библиотека. Поддържа решетка, masonry, carousel слайдер и общия lightbox на платформата.
 
-Версия: **0.1.2** · ID: `flex/galleries` · Минимална версия на Flex CMS: **0.1.54**.
+Версия: **0.2.0** · ID: `flex/galleries` · Минимална версия на Flex CMS: **0.1.62**.
 
 GitHub репозитори: `techsolutionbg/flex-galleries-plugin`.
 
